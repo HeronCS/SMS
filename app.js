@@ -264,6 +264,9 @@ app.use(async (req, res, next) => {
 
 app.use(async (req, res, next) => {
     try {
+        if (!req.session) {
+            
+        }
         const unpaidInvoices = await Invoices.findAll({
             where: { remittanceDate: null },
             attributes: ['id', 'kashflowNumber'],
@@ -368,5 +371,5 @@ app.use(errorHandler);
 
 const PORT = process.env.PORT || 443;
 https.createServer(options, app).listen(PORT, '0.0.0.0', () => {
-    console.log(`Server is running on https://${process.env.SSL_COMMON_NAME}`);
+    logger.info(`Server is running on https://${process.env.SSL_COMMON_NAME}`);
 });

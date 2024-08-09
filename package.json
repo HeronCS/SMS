@@ -69,6 +69,7 @@
     "moment": "^2.30.1",
     "mysql2": "^3.3.3",
     "nodemailer": "^6.9.7",
+    "path": "^0.12.7",
     "selfsigned": "^2.4.1",
     "sequelize": "^6.31.1",
     "speakeasy": "^2.0.0",

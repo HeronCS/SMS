@@ -5,7 +5,7 @@ const packageJson = require('../../package.json');
 const User = require('../../models/user');
 const helpers = require('../../helpers');
 const logger = require('../../logger');
-
+const path = require('path');
 const { Op } = require('sequelize');
 const bcrypt = require('bcrypt');
 const Joi = require('joi');

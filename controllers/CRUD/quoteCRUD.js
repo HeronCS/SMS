@@ -7,6 +7,7 @@ const Clients = require('../../models/client');
 const helpers = require('../../helpers');
 const moment = require('moment');
 const logger = require('../../logger');
+const path = require('path');
 
 const createQuote = async (req, res) => {
     try {

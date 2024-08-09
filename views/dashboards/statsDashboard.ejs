@@ -2,9 +2,9 @@
 <%- include('../partials/errorAlerts.ejs') %>
 <div class="container py-4">
     <div class="d-flex justify-content-between mb-3">
-        <a href="/dashboard/stats/<%= previousYear %>/<%= previousMonth %>" class="btn btn-primary">&laquo; Previous</a>
+        <a href="/dashboard/stats/<%= previousYear %>/<%= previousMonth %>" class="btn btn-hcs-green">&laquo; Previous</a>
         <h1>Period: <%= currentMonthlyReturn.periodStartDisplay %> - <%= currentMonthlyReturn.periodEndDisplay %></h1>
-        <a href="/dashboard/stats/<%= nextYear %>/<%= nextMonth %>" class="btn btn-primary">Next &raquo;</a>
+        <a href="/dashboard/stats/<%= nextYear %>/<%= nextMonth %>" class="btn btn-hcs-green">Next &raquo;</a>
     </div>
     <div class="row mb-4">
         <div class="col-lg-6 col-md-6 mb-4">

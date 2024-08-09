@@ -5,6 +5,7 @@ const speakeasy = require("speakeasy");
 const User = require("../../models/user");
 const { Op } = require("sequelize");
 const logger = require('../../logger'); 
+const path = require('path');
 
 const renderRegistrationForm = (req, res) => {
     

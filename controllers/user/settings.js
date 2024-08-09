@@ -4,6 +4,7 @@ const User = require('../../models/user');
 const helpers = require('../../helpers');
 const packageJson = require('../../package.json');
 const logger = require('../../logger'); 
+const path = require('path');
 
 // Update the account settings
 const updateAccountSettings = async (req, res) => {
