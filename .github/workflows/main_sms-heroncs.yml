@@ -59,4 +59,4 @@ jobs:
           app-name: 'SMS-heroncs'
           slot-name: 'Production'
           package: .
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FD87250EF3B94376A7BE04D0B5B44739 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_244AE9C4AD6A4CBDB99ABF9093700F6C }}
