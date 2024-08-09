@@ -15,23 +15,6 @@ const fs = require('fs');
 require('dotenv').config();
 const helpers = require('./helpers');
 
-// Generate the self-signed certificate
-const attrs = [
-    { name: 'commonName', value: process.env.SSL_COMMON_NAME },
-    { name: 'countryName', value: process.env.SSL_COUNTRY },
-    { shortName: 'ST', value: process.env.SSL_STATE },
-    { name: 'localityName', value: process.env.SSL_LOCALITY },
-    { name: 'organizationName', value: process.env.SSL_ORGANIZATION },
-    { shortName: 'OU', value: process.env.SSL_ORGANIZATIONAL_UNIT }
-];
-
-const pems = selfsigned.generate(attrs, { days: 365 });
-
-const options = {
-    key: pems.private,
-    cert: pems.cert
-};
-
 // Set up EJS
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
@@ -56,15 +39,16 @@ app.use(helmet());
 app.use(
     helmet.contentSecurityPolicy({
         directives: {
-            defaultSrc: ["'self'", "sms.heroncs.local"],
+            defaultSrc: ["'self'", "https://sms.heroncs.co.uk", "https://sms-heroncs.azurewebsites.net"],
             styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net", "https://fonts.googleapis.com"],
             scriptSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
             fontSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net", "https://fonts.gstatic.com", "https://fonts.googleapis.com"],
-            imgSrc: ["'self'", "data:", "otpauth:", "https://i.creativecommons.org", "https://licensebuttons.net"],
-            connectSrc: ["'self'", "sms.heroncs.local"],
+            imgSrc: ["'self'", "data:", "otpauth:", "https://i.creativecommons.org", "https://licensebuttons.net", "https://<your-azure-domain>.azurewebsites.net"],
+            connectSrc: ["'self'", "https://sms.heroncs.co.uk", "https://sms-heroncs.azurewebsites.net"],
         },
     })
 );
+
 
 const sessionStore = new MySQLStore({
     host: process.env.DB_HOST,
