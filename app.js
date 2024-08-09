@@ -369,7 +369,6 @@ const errorHandler = (err, req, res, next) => {
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 443;
-https.createServer(options, app).listen(PORT, '0.0.0.0', () => {
-    logger.info(`Server is running on https://${process.env.SSL_COMMON_NAME}`);
+app.listen(80, '0.0.0.0', () => {
+    logger.info(`Server is running`);
 });
